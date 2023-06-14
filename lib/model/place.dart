@@ -4,11 +4,13 @@ class Place {
   final double lattitude;
   final double longitude;
   final String? icon;
+  final List<String> imgUrl;
 
   Place(
       {this.name,
       this.type,
       required this.lattitude,
       required this.longitude,
-      this.icon});
+      this.icon,
+      required this.imgUrl});
 }
