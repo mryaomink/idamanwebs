@@ -28,13 +28,21 @@ class _YaoBadapatState extends State<YaoBadapat> {
       judul: 'Hotel',
       icon: Icons.house,
     ),
+    Kategori(
+      judul: 'Tambal Ban',
+      icon: Icons.travel_explore,
+    ),
+    Kategori(
+      judul: 'Wisata Religi',
+      icon: Icons.travel_explore,
+    ),
   ];
   List<Place> wisata = [
     Place(
         name: 'Amanah Borneo Park',
         type: 'Wisata',
-        lattitude: -3.4993967,
-        longitude: 114.8091441,
+        lattitude: -3.499193232183101,
+        longitude: 114.81170829176907,
         icon: 'assets/icon/wisata.png',
         imgUrl: [
           "https://images.unsplash.com/photo-1501785888041-af3ef285b470?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80",
@@ -68,6 +76,18 @@ class _YaoBadapatState extends State<YaoBadapat> {
       type: 'Kuliner',
       lattitude: -3.4426307,
       longitude: 114.8298288,
+      icon: 'assets/icon/wisata.png',
+      imgUrl: [
+        "https://images.unsplash.com/photo-1501785888041-af3ef285b470?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80",
+        "https://images.unsplash.com/photo-1530789253388-582c481c54b0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80",
+        'https://images.unsplash.com/photo-1506197603052-3cc9c3a201bd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80',
+      ],
+    ),
+    Place(
+      name: 'Tambal Ban & Kios',
+      type: 'Tambal Ban',
+      lattitude: -3.4312544863668974,
+      longitude: 114.82272594842901,
       icon: 'assets/icon/wisata.png',
       imgUrl: [
         "https://images.unsplash.com/photo-1501785888041-af3ef285b470?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80",
@@ -112,7 +132,10 @@ class _YaoBadapatState extends State<YaoBadapat> {
                             ),
                           );
                         },
-                        title: Text(tempat.name!),
+                        title: Text(
+                          tempat.name!,
+                          maxLines: 2,
+                        ),
                       );
                     });
               }).toList())),
@@ -140,7 +163,7 @@ class MapWisata extends StatelessWidget {
             child: FlutterMap(
               options: MapOptions(
                 center: const LatLng(-3.4537472, 114.819072),
-                zoom: 16.0,
+                zoom: 10.0,
               ),
               children: [
                 TileLayer(

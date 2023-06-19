@@ -3,10 +3,20 @@ import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:idaman_webs/model/place.dart';
 import 'package:latlong2/latlong.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class BadapatDetail extends StatelessWidget {
   final Place place;
   const BadapatDetail({super.key, required this.place});
+
+  void launchGoogleMaps(double latitude, double longitude) async {
+    final String googleMapsUrl =
+        'https://www.google.com/maps/search/?api=1&query=$latitude,$longitude';
+    if (await launchUrl(Uri.parse(googleMapsUrl))) {
+    } else {
+      throw 'Could not launch Google Maps.';
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -14,9 +24,10 @@ class BadapatDetail extends StatelessWidget {
       appBar: AppBar(
         title: Text(place.name!),
       ),
-      body: Column(
+      body: Stack(
+        alignment: Alignment.bottomCenter,
         children: [
-          Expanded(
+          SizedBox(
             child: FlutterMap(
               options: MapOptions(
                 center: LatLng(place.lattitude, place.longitude),
@@ -31,10 +42,15 @@ class BadapatDetail extends StatelessWidget {
                   markers: [
                     Marker(
                       point: LatLng(place.lattitude, place.longitude),
-                      builder: (ctx) => const Icon(
-                        Icons.location_on,
-                        color: Colors.red,
-                        size: 40.0,
+                      builder: (ctx) => InkWell(
+                        onTap: () {
+                          launchGoogleMaps(place.lattitude, place.longitude);
+                        },
+                        child: const Icon(
+                          Icons.location_on,
+                          color: Colors.red,
+                          size: 40.0,
+                        ),
                       ),
                     ),
                   ],
@@ -45,7 +61,9 @@ class BadapatDetail extends StatelessWidget {
           const SizedBox(
             height: 16.0,
           ),
-          CarouselSlider(
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 20.0),
+            child: CarouselSlider(
               items: place.imgUrl
                   .map((img) => Builder(builder: (BuildContext context) {
                         return Container(
@@ -59,7 +77,12 @@ class BadapatDetail extends StatelessWidget {
                       }))
                   .toList(),
               options: CarouselOptions(
-                  enlargeCenterPage: true, height: 200.0, autoPlay: true))
+                  enlargeCenterPage: true,
+                  height: 300.0,
+                  autoPlay: true,
+                  aspectRatio: 9 / 16),
+            ),
+          )
         ],
       ),
     );
