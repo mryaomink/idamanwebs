@@ -220,7 +220,7 @@ class IdamanHero extends StatelessWidget {
                       height: 10.0,
                     ),
                     Text(
-                      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+                      'Banjarbaru dalam Peta',
                       style: TextStyle(
                           fontSize: 14.0,
                           color: Colors.white,
