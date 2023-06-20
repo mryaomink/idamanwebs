@@ -140,6 +140,7 @@ class _YaoBadapatState extends State<YaoBadapat> {
       child: Scaffold(
           appBar: AppBar(
             bottom: TabBar(
+                isScrollable: true,
                 tabs: kategori
                     .map((categori) => Tab(
                           text: categori.judul,
