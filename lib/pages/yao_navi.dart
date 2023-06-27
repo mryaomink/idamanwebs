@@ -68,17 +68,22 @@ class _YaoNavState extends State<YaoNav> {
                 labelType: NavigationRailLabelType.all,
                 selectedLabelTextStyle: const TextStyle(color: Colors.blue),
                 unselectedLabelTextStyle: const TextStyle(color: Colors.grey),
-                leading: const Padding(
-                  padding: EdgeInsets.all(16.0),
+                leading: Padding(
+                  padding: const EdgeInsets.all(16.0),
                   child: Column(
                     children: [
-                      CircleAvatar(
-                        backgroundColor: Colors.blue,
-                        radius: 30,
-                        child: Text('Idaman'),
+                      Container(
+                        width: 129.0,
+                        height: 129.0,
+                        decoration: const BoxDecoration(
+                            image: DecorationImage(
+                          image: AssetImage(
+                            'assets/icon/juara.png',
+                          ),
+                        )),
                       ),
-                      SizedBox(
-                        height: 20.0,
+                      const SizedBox(
+                        height: 10.0,
                       ),
                     ],
                   ),
