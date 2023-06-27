@@ -44,11 +44,29 @@ class YaoHome extends StatelessWidget {
                           onTap: () {
                             launchUrlDukcapil();
                           },
-                          child: Container(
-                            alignment: Alignment.center,
-                            height: 280,
-                            color: Colors.blueGrey,
-                            child: const Text('Pelayanan Dukcapil Online'),
+                          child: Stack(
+                            children: [
+                              Container(
+                                alignment: Alignment.bottomLeft,
+                                height: 280,
+                                color: Colors.blueGrey,
+                                child: Image.asset('assets/icon/kadis.png'),
+                              ),
+                              Align(
+                                alignment: Alignment.topCenter,
+                                child: Container(
+                                  margin: const EdgeInsets.all(8.0),
+                                  color: Colors.black.withOpacity(0.5),
+                                  child: const Text(
+                                    'Dukcapil Online',
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 16.0,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
                           ),
                         ),
                       ),
@@ -60,12 +78,45 @@ class YaoHome extends StatelessWidget {
                           onTap: () {
                             launchUrlSipopi();
                           },
-                          child: Container(
-                            alignment: Alignment.center,
-                            height: 280,
-                            color: Colors.amber,
-                            child: const Text(
-                                'Sistem Pelayanan Online Rumah Sakit Idaman'),
+                          child: Stack(
+                            children: [
+                              Container(
+                                padding: const EdgeInsets.only(right: 16.0),
+                                alignment: Alignment.bottomRight,
+                                height: 280,
+                                color: Colors.amber,
+                                child: Image.asset('assets/icon/bupati.png'),
+                              ),
+                              MediaQuery.of(context).size.width >= 600
+                                  ? Align(
+                                      alignment: Alignment.topLeft,
+                                      child: Container(
+                                        margin: const EdgeInsets.all(8.0),
+                                        color: Colors.black.withOpacity(0.5),
+                                        child: const Text(
+                                          'Sipopi',
+                                          style: TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 16.0,
+                                          ),
+                                        ),
+                                      ),
+                                    )
+                                  : Align(
+                                      alignment: Alignment.topCenter,
+                                      child: Container(
+                                        margin: const EdgeInsets.all(8.0),
+                                        color: Colors.black.withOpacity(0.5),
+                                        child: const Text(
+                                          'Sipopi',
+                                          style: TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 16.0,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                            ],
                           ),
                         ),
                       ),
