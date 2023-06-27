@@ -120,7 +120,7 @@ class YaoWeb extends StatelessWidget {
               style: TextStyle(color: Colors.black),
             ),
             onTap: () {
-              print('UMKM tapped');
+              print('MEDIA Center tapped');
             },
           ),
           ListTile(

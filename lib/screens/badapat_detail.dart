@@ -66,12 +66,15 @@ class BadapatDetail extends StatelessWidget {
             child: CarouselSlider(
               items: place.imgUrl
                   .map((img) => Builder(builder: (BuildContext context) {
-                        return Container(
-                          width: MediaQuery.of(context).size.width,
-                          margin: const EdgeInsets.symmetric(horizontal: 5.0),
-                          child: Image.network(
-                            img,
-                            fit: BoxFit.cover,
+                        return ClipRRect(
+                          borderRadius: BorderRadius.circular(50.0),
+                          child: Container(
+                            width: MediaQuery.of(context).size.width,
+                            margin: const EdgeInsets.symmetric(horizontal: 5.0),
+                            child: Image.network(
+                              img,
+                              fit: BoxFit.cover,
+                            ),
                           ),
                         );
                       }))
@@ -80,7 +83,7 @@ class BadapatDetail extends StatelessWidget {
                   enlargeCenterPage: true,
                   height: 300.0,
                   autoPlay: true,
-                  aspectRatio: 9 / 16),
+                  aspectRatio: 9 / 16,),
             ),
           )
         ],
