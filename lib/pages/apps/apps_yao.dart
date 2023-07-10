@@ -38,48 +38,50 @@ class _AppsYaoState extends State<AppsYao> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: ListView.builder(
-          controller: controller,
-          itemCount: 5,
-          itemBuilder: (context, index) {
-            return Container(
-              height: MediaQuery.of(context).size.height,
-              clipBehavior: Clip.hardEdge,
-              decoration: const BoxDecoration(),
-              child: Stack(
-                children: [
-                  Container(
-                    transform: Matrix4.identity()
-                      ..translate(
-                        0.0,
-                        controller.hasClients
-                            ? (-(index * MediaQuery.of(context).size.height) +
-                                    controller.position.pixels) /
-                                2
-                            : 0.0,
-                      ),
-                    width: MediaQuery.of(context).size.width,
-                    height: MediaQuery.of(context).size.height,
-                    child: Image.network(
-                      imgUrl[index],
-                      fit: BoxFit.cover,
+        controller: controller,
+        itemCount: 5,
+        itemBuilder: (context, index) {
+          return Container(
+            height: MediaQuery.of(context).size.height,
+            clipBehavior: Clip.hardEdge,
+            decoration: const BoxDecoration(),
+            child: Stack(
+              children: [
+                Container(
+                  transform: Matrix4.identity()
+                    ..translate(
+                      0.0,
+                      controller.hasClients
+                          ? (-(index * MediaQuery.of(context).size.height) +
+                                  controller.position.pixels) /
+                              2
+                          : 0.0,
+                    ),
+                  width: MediaQuery.of(context).size.width,
+                  height: MediaQuery.of(context).size.height,
+                  child: Image.network(
+                    imgUrl[index],
+                    fit: BoxFit.cover,
+                  ),
+                ),
+                Center(
+                  child: Container(
+                    padding: const EdgeInsets.all(16.0),
+                    color: Colors.white.withOpacity(0.5),
+                    child: Text(
+                      title[index],
+                      style: TextStyle(
+                          fontSize: MediaQuery.of(context).size.width >= 600
+                              ? 100
+                              : 50.0),
                     ),
                   ),
-                  Center(
-                    child: Container(
-                        padding: const EdgeInsets.all(16.0),
-                        color: Colors.white.withOpacity(0.5),
-                        child: Text(
-                          title[index],
-                          style: TextStyle(
-                              fontSize: MediaQuery.of(context).size.width >= 600
-                                  ? 100
-                                  : 50.0),
-                        )),
-                  ),
-                ],
-              ),
-            );
-          }),
+                ),
+              ],
+            ),
+          );
+        },
+      ),
     );
   }
 }
