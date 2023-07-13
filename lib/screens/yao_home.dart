@@ -84,7 +84,7 @@ class YaoHome extends StatelessWidget {
                                 padding: const EdgeInsets.only(right: 16.0),
                                 alignment: Alignment.bottomRight,
                                 height: 280,
-                                color: Colors.amber,
+                                color: Colors.blue,
                                 child: Image.asset('assets/icon/bupati.png'),
                               ),
                               MediaQuery.of(context).size.width >= 600
