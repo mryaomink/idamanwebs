@@ -15,11 +15,126 @@ class NewsYao extends StatefulWidget {
 class _NewsYaoState extends State<NewsYao> {
   List<dynamic> wpPost = [];
   List<dynamic> featuredPost = [];
+  List<dynamic> bkppPost = [];
+  List<dynamic> bpkad = [];
+  List<dynamic> dishub = [];
+  List<dynamic> disperkim = [];
+  List<dynamic> dinsos = [];
+  List<dynamic> ulp = [];
   @override
   void initState() {
     super.initState();
     fetchPosts();
+    fetchPostsBkpp();
+    fetchPostsBpkad();
+    fetchPostsDishub();
+    fetchPostsDisperkim();
+    fetchPostsDinsos();
+    fetchPostsUlp();
     getFeaturePost();
+  }
+
+  Future<void> fetchPostsUlp() async {
+    try {
+      final response = await get(
+        Uri.parse('https://ulp.banjarbarukota.go.id/wp-json/wp/v2/posts/'),
+      );
+      if (response.statusCode == 200) {
+        setState(() {
+          ulp = jsonDecode(response.body);
+        });
+      } else {
+        throw Exception('Gagal Mendapatkan Artikel');
+      }
+    } catch (e) {
+      print('Error: $e');
+    }
+  }
+
+  Future<void> fetchPostsDinsos() async {
+    try {
+      final response = await get(
+        Uri.parse('https://dinsos.banjarbarukota.go.id/wp-json/wp/v2/posts/'),
+      );
+      if (response.statusCode == 200) {
+        setState(() {
+          dinsos = jsonDecode(response.body);
+        });
+      } else {
+        throw Exception('Gagal Mendapatkan Artikel');
+      }
+    } catch (e) {
+      print('Error: $e');
+    }
+  }
+
+  Future<void> fetchPostsDisperkim() async {
+    try {
+      final response = await get(
+        Uri.parse(
+            'https://disperkim.banjarbarukota.go.id/wp-json/wp/v2/posts/'),
+      );
+      if (response.statusCode == 200) {
+        setState(() {
+          disperkim = jsonDecode(response.body);
+        });
+      } else {
+        throw Exception('Gagal Mendapatkan Artikel');
+      }
+    } catch (e) {
+      print('Error: $e');
+    }
+  }
+
+  Future<void> fetchPostsDishub() async {
+    try {
+      final response = await get(
+        Uri.parse('https://dishub.banjarbarukota.go.id/wp-json/wp/v2/posts/'),
+      );
+      if (response.statusCode == 200) {
+        setState(() {
+          dishub = jsonDecode(response.body);
+        });
+      } else {
+        throw Exception('Gagal Mendapatkan Artikel');
+      }
+    } catch (e) {
+      print('Error: $e');
+    }
+  }
+
+  Future<void> fetchPostsBpkad() async {
+    try {
+      final response = await get(
+        Uri.parse('https://bpkad.banjarbarukota.go.id/wp-json/wp/v2/posts/'),
+      );
+      if (response.statusCode == 200) {
+        setState(() {
+          bpkad = jsonDecode(response.body);
+        });
+      } else {
+        throw Exception('Gagal Mendapatkan Artikel');
+      }
+    } catch (e) {
+      print('Error: $e');
+    }
+  }
+
+  Future<void> fetchPostsBkpp() async {
+    try {
+      final response = await get(
+        Uri.parse('https://bkpp.banjarbarukota.go.id/wp-json/wp/v2/posts/'),
+      );
+      if (response.statusCode == 200) {
+        setState(() {
+          bkppPost = jsonDecode(response.body);
+        });
+      } else {
+        throw Exception('Gagal Mendapatkan Artikel');
+      }
+    } catch (e) {
+      print('Error: $e');
+    }
   }
 
   Future<void> fetchPosts() async {
@@ -61,7 +176,7 @@ class _NewsYaoState extends State<NewsYao> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          "Media Center",
+          "Berita & Informasi",
           style: Theme.of(context).textTheme.headlineLarge,
         ),
         centerTitle: true,
@@ -88,7 +203,155 @@ class _NewsYaoState extends State<NewsYao> {
                     },
                     title: Text(
                       post['title']['rendered'],
-                      style: Theme.of(context).textTheme.headlineMedium,
+                      style: Theme.of(context).textTheme.headlineSmall,
+                    ),
+                    subtitle: HtmlWidget(
+                      htmlContent,
+                    ),
+                  );
+                },
+              ),
+            ),
+
+            // bkpp Post
+            SizedBox(
+              child: ListView.builder(
+                primary: false,
+                shrinkWrap: true,
+                itemCount: bkppPost.length,
+                itemBuilder: (BuildContext context, int index) {
+                  final post = bkppPost[index];
+                  final htmlContent = post['excerpt']['rendered'];
+                  final postUrl = post['link'];
+                  return ListTile(
+                    onTap: () {
+                      _launchUrl(postUrl);
+                    },
+                    title: Text(
+                      post['title']['rendered'],
+                      style: Theme.of(context).textTheme.headlineSmall,
+                    ),
+                    subtitle: HtmlWidget(
+                      htmlContent,
+                    ),
+                  );
+                },
+              ),
+            ),
+            // bpkad post
+            SizedBox(
+              child: ListView.builder(
+                primary: false,
+                shrinkWrap: true,
+                itemCount: bpkad.length,
+                itemBuilder: (BuildContext context, int index) {
+                  final post = bpkad[index];
+                  final htmlContent = post['excerpt']['rendered'];
+                  final postUrl = post['link'];
+                  return ListTile(
+                    onTap: () {
+                      _launchUrl(postUrl);
+                    },
+                    title: Text(
+                      post['title']['rendered'],
+                      style: Theme.of(context).textTheme.headlineSmall,
+                    ),
+                    subtitle: HtmlWidget(
+                      htmlContent,
+                    ),
+                  );
+                },
+              ),
+            ),
+            // Dishub post
+            SizedBox(
+              child: ListView.builder(
+                primary: false,
+                shrinkWrap: true,
+                itemCount: dishub.length,
+                itemBuilder: (BuildContext context, int index) {
+                  final post = dishub[index];
+                  final htmlContent = post['excerpt']['rendered'];
+                  final postUrl = post['link'];
+                  return ListTile(
+                    onTap: () {
+                      _launchUrl(postUrl);
+                    },
+                    title: Text(
+                      post['title']['rendered'],
+                      style: Theme.of(context).textTheme.headlineSmall,
+                    ),
+                    subtitle: HtmlWidget(
+                      htmlContent,
+                    ),
+                  );
+                },
+              ),
+            ),
+            // Disperkim post
+            SizedBox(
+              child: ListView.builder(
+                primary: false,
+                shrinkWrap: true,
+                itemCount: disperkim.length,
+                itemBuilder: (BuildContext context, int index) {
+                  final post = disperkim[index];
+
+                  final postUrl = post['link'];
+                  return ListTile(
+                    onTap: () {
+                      _launchUrl(postUrl);
+                    },
+                    title: Text(
+                      post['title']['rendered'],
+                      style: Theme.of(context).textTheme.headlineSmall,
+                    ),
+                  );
+                },
+              ),
+            ),
+            // Dinsos post
+            SizedBox(
+              child: ListView.builder(
+                primary: false,
+                shrinkWrap: true,
+                itemCount: dinsos.length,
+                itemBuilder: (BuildContext context, int index) {
+                  final post = dinsos[index];
+                  final htmlContent = post['excerpt']['rendered'];
+                  final postUrl = post['link'];
+                  return ListTile(
+                    onTap: () {
+                      _launchUrl(postUrl);
+                    },
+                    title: Text(
+                      post['title']['rendered'],
+                      style: Theme.of(context).textTheme.headlineSmall,
+                    ),
+                    subtitle: HtmlWidget(
+                      htmlContent,
+                    ),
+                  );
+                },
+              ),
+            ),
+            // Ulp Post
+            SizedBox(
+              child: ListView.builder(
+                primary: false,
+                shrinkWrap: true,
+                itemCount: ulp.length,
+                itemBuilder: (BuildContext context, int index) {
+                  final post = ulp[index];
+                  final htmlContent = post['excerpt']['rendered'];
+                  final postUrl = post['link'];
+                  return ListTile(
+                    onTap: () {
+                      _launchUrl(postUrl);
+                    },
+                    title: Text(
+                      post['title']['rendered'],
+                      style: Theme.of(context).textTheme.headlineSmall,
                     ),
                     subtitle: HtmlWidget(
                       htmlContent,
@@ -115,7 +378,6 @@ class _NewsYaoState extends State<NewsYao> {
                 itemCount: featuredPost.length,
                 itemBuilder: (BuildContext context, int index) {
                   final post = featuredPost[index];
-
                   final postUrl = post['link'];
                   return ListTile(
                     onTap: () {
