@@ -204,7 +204,7 @@ class IdamanHero extends StatelessWidget {
                                 height: 10.0,
                               ),
                               Text(
-                                'Informasi Harga Pangan',
+                                'INFOBAPOKTING',
                                 style: TextStyle(
                                     fontSize: 16.0, color: Colors.black),
                               ),
@@ -212,7 +212,7 @@ class IdamanHero extends StatelessWidget {
                                 height: 10.0,
                               ),
                               Text(
-                                'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Faucibus interdum posuere lorem ipsum.',
+                                'Informasi Harga Barang Pokok dan Penting',
                                 style: TextStyle(
                                     fontSize: 12.0, color: Colors.blue),
                                 textAlign: TextAlign.center,
@@ -259,7 +259,7 @@ class IdamanHero extends StatelessWidget {
                                 height: 10.0,
                               ),
                               Text(
-                                'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Faucibus interdum posuere lorem ipsum.',
+                                'Peta Pantau CCTV',
                                 style: TextStyle(
                                     fontSize: 12.0, color: Colors.blue),
                                 textAlign: TextAlign.center,
@@ -343,18 +343,18 @@ class IdamanHero extends StatelessWidget {
                                           height: 10.0,
                                         ),
                                         Text(
-                                          'Informasi Harga Pangan',
+                                          'INFOBAPOKTING',
                                           style: TextStyle(
-                                              fontSize: 16.0,
+                                              fontSize: 22.0,
                                               color: Colors.black),
                                         ),
                                         SizedBox(
                                           height: 10.0,
                                         ),
                                         Text(
-                                          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Faucibus interdum posuere lorem ipsum.',
+                                          'Informasi Harga Barang Pokok dan Penting',
                                           style: TextStyle(
-                                              fontSize: 12.0,
+                                              fontSize: 18.0,
                                               color: Colors.blue),
                                           textAlign: TextAlign.center,
                                         ),
@@ -397,16 +397,16 @@ class IdamanHero extends StatelessWidget {
                                         Text(
                                           'CCTV Kota Banjarbaru',
                                           style: TextStyle(
-                                              fontSize: 16.0,
+                                              fontSize: 22.0,
                                               color: Colors.black),
                                         ),
                                         SizedBox(
-                                          height: 10.0,
+                                          height: 14.0,
                                         ),
                                         Text(
-                                          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Faucibus interdum posuere lorem ipsum.',
+                                          'Peta Pantau CCTV',
                                           style: TextStyle(
-                                              fontSize: 12.0,
+                                              fontSize: 16.0,
                                               color: Colors.blue),
                                           textAlign: TextAlign.center,
                                         ),

@@ -1,3 +1,4 @@
+import 'package:idaman_webs/state_util.dart';
 import 'package:flutter/material.dart';
 
 import 'package:idaman_webs/pages/yao_navi.dart';
@@ -17,6 +18,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Idaman Web based',
+navigatorKey: Get.navigatorKey,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
