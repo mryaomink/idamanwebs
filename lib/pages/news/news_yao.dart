@@ -188,177 +188,46 @@ class _NewsYaoState extends State<NewsYao> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox(
-              child: ListView.builder(
-                primary: false,
-                shrinkWrap: true,
-                itemCount: wpPost.length,
-                itemBuilder: (BuildContext context, int index) {
-                  final post = wpPost[index];
-                  final htmlContent = post['excerpt']['rendered'];
-
-                  final postUrl = post['link'];
-                  return ListTile(
-                    onTap: () {
-                      _launchUrl(postUrl);
-                    },
-                    title: Text(
-                      post['title']['rendered'],
-                      style: Theme.of(context).textTheme.headlineSmall,
-                    ),
-                    subtitle: HtmlWidget(
-                      htmlContent,
-                    ),
-                  );
-                },
-              ),
+              child: MediaQuery.of(context).size.width < 640
+                  ? _mediaCenterMobile()
+                  : _mediaCenterWeb(),
             ),
 
             // bkpp Post
             SizedBox(
-              child: ListView.builder(
-                primary: false,
-                shrinkWrap: true,
-                itemCount: bkppPost.length,
-                itemBuilder: (BuildContext context, int index) {
-                  final post = bkppPost[index];
-                  final htmlContent = post['excerpt']['rendered'];
-                  final postUrl = post['link'];
-                  return ListTile(
-                    onTap: () {
-                      _launchUrl(postUrl);
-                    },
-                    title: Text(
-                      post['title']['rendered'],
-                      style: Theme.of(context).textTheme.headlineSmall,
-                    ),
-                    subtitle: HtmlWidget(
-                      htmlContent,
-                    ),
-                  );
-                },
-              ),
+              child: MediaQuery.of(context).size.width < 640
+                  ? _bkppMobile()
+                  : _bkppWeb(),
             ),
             // bpkad post
             SizedBox(
-              child: ListView.builder(
-                primary: false,
-                shrinkWrap: true,
-                itemCount: bpkad.length,
-                itemBuilder: (BuildContext context, int index) {
-                  final post = bpkad[index];
-                  final htmlContent = post['excerpt']['rendered'];
-                  final postUrl = post['link'];
-                  return ListTile(
-                    onTap: () {
-                      _launchUrl(postUrl);
-                    },
-                    title: Text(
-                      post['title']['rendered'],
-                      style: Theme.of(context).textTheme.headlineSmall,
-                    ),
-                    subtitle: HtmlWidget(
-                      htmlContent,
-                    ),
-                  );
-                },
-              ),
+              child: MediaQuery.of(context).size.width < 640
+                  ? _bpkadMobile()
+                  : _bpkadWeb(),
             ),
             // Dishub post
             SizedBox(
-              child: ListView.builder(
-                primary: false,
-                shrinkWrap: true,
-                itemCount: dishub.length,
-                itemBuilder: (BuildContext context, int index) {
-                  final post = dishub[index];
-                  final htmlContent = post['excerpt']['rendered'];
-                  final postUrl = post['link'];
-                  return ListTile(
-                    onTap: () {
-                      _launchUrl(postUrl);
-                    },
-                    title: Text(
-                      post['title']['rendered'],
-                      style: Theme.of(context).textTheme.headlineSmall,
-                    ),
-                    subtitle: HtmlWidget(
-                      htmlContent,
-                    ),
-                  );
-                },
-              ),
+              child: MediaQuery.of(context).size.width < 640
+                  ? _dishubMobile()
+                  : _dishubWeb(),
             ),
             // Disperkim post
             SizedBox(
-              child: ListView.builder(
-                primary: false,
-                shrinkWrap: true,
-                itemCount: disperkim.length,
-                itemBuilder: (BuildContext context, int index) {
-                  final post = disperkim[index];
-
-                  final postUrl = post['link'];
-                  return ListTile(
-                    onTap: () {
-                      _launchUrl(postUrl);
-                    },
-                    title: Text(
-                      post['title']['rendered'],
-                      style: Theme.of(context).textTheme.headlineSmall,
-                    ),
-                  );
-                },
-              ),
+              child: MediaQuery.of(context).size.width < 640
+                  ? _disperkimMobile()
+                  : _disperkimWeb(),
             ),
             // Dinsos post
             SizedBox(
-              child: ListView.builder(
-                primary: false,
-                shrinkWrap: true,
-                itemCount: dinsos.length,
-                itemBuilder: (BuildContext context, int index) {
-                  final post = dinsos[index];
-                  final htmlContent = post['excerpt']['rendered'];
-                  final postUrl = post['link'];
-                  return ListTile(
-                    onTap: () {
-                      _launchUrl(postUrl);
-                    },
-                    title: Text(
-                      post['title']['rendered'],
-                      style: Theme.of(context).textTheme.headlineSmall,
-                    ),
-                    subtitle: HtmlWidget(
-                      htmlContent,
-                    ),
-                  );
-                },
-              ),
+              child: MediaQuery.of(context).size.width < 640
+                  ? _dinsosMobile()
+                  : _dinsosWeb(),
             ),
             // Ulp Post
             SizedBox(
-              child: ListView.builder(
-                primary: false,
-                shrinkWrap: true,
-                itemCount: ulp.length,
-                itemBuilder: (BuildContext context, int index) {
-                  final post = ulp[index];
-                  final htmlContent = post['excerpt']['rendered'];
-                  final postUrl = post['link'];
-                  return ListTile(
-                    onTap: () {
-                      _launchUrl(postUrl);
-                    },
-                    title: Text(
-                      post['title']['rendered'],
-                      style: Theme.of(context).textTheme.headlineSmall,
-                    ),
-                    subtitle: HtmlWidget(
-                      htmlContent,
-                    ),
-                  );
-                },
-              ),
+              child: MediaQuery.of(context).size.width < 640
+                  ? _ulpMobile()
+                  : _ulpWeb(),
             ),
             const SizedBox(
               height: 20.0,
@@ -398,6 +267,619 @@ class _NewsYaoState extends State<NewsYao> {
           ],
         ),
       ),
+    );
+  }
+
+  Widget _ulpWeb() {
+    return ListView.builder(
+      primary: false,
+      shrinkWrap: true,
+      itemCount: ulp.length,
+      itemBuilder: (BuildContext context, int index) {
+        final post = ulp[index];
+        final htmlContent = post['excerpt']['rendered'];
+        final postUrl = post['link'];
+        return ListTile(
+          onTap: () {
+            _launchUrl(postUrl);
+          },
+          title: Text(
+            post['title']['rendered'],
+            style: Theme.of(context).textTheme.headlineSmall,
+          ),
+          subtitle: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              HtmlWidget(
+                htmlContent,
+              ),
+              const SizedBox(
+                height: 8.0,
+              ),
+              TextButton(
+                onPressed: () {
+                  _launchUrl(postUrl);
+                },
+                child: Text(
+                  "Selengkapnya",
+                  style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                        color: Colors.blue,
+                        fontSize: 20.0,
+                      ),
+                ),
+              ),
+            ],
+          ),
+        );
+      },
+    );
+  }
+
+  Widget _ulpMobile() {
+    return ListView.builder(
+      primary: false,
+      shrinkWrap: true,
+      itemCount: ulp.length,
+      itemBuilder: (BuildContext context, int index) {
+        final post = ulp[index];
+        final htmlContent = post['excerpt']['rendered'];
+        final postUrl = post['link'];
+        return ListTile(
+          onTap: () {
+            _launchUrl(postUrl);
+          },
+          title: Text(
+            post['title']['rendered'],
+            style: Theme.of(context).textTheme.headlineSmall,
+          ),
+          subtitle: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              HtmlWidget(
+                htmlContent,
+              ),
+              const SizedBox(
+                height: 8.0,
+              ),
+              TextButton(
+                onPressed: () {
+                  _launchUrl(postUrl);
+                },
+                child: Text(
+                  "Selengkapnya",
+                  style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                        color: Colors.blue,
+                        fontSize: 14.0,
+                      ),
+                ),
+              ),
+            ],
+          ),
+        );
+      },
+    );
+  }
+
+  Widget _dinsosWeb() {
+    return ListView.builder(
+      primary: false,
+      shrinkWrap: true,
+      itemCount: dinsos.length,
+      itemBuilder: (BuildContext context, int index) {
+        final post = dinsos[index];
+        final htmlContent = post['excerpt']['rendered'];
+        final postUrl = post['link'];
+        return ListTile(
+          onTap: () {
+            _launchUrl(postUrl);
+          },
+          title: Text(
+            post['title']['rendered'],
+            style: Theme.of(context).textTheme.headlineSmall,
+          ),
+          subtitle: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              HtmlWidget(
+                htmlContent,
+              ),
+              const SizedBox(
+                height: 8.0,
+              ),
+              TextButton(
+                onPressed: () {
+                  _launchUrl(postUrl);
+                },
+                child: Text(
+                  "Selengkapnya",
+                  style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                        color: Colors.blue,
+                        fontSize: 20.0,
+                      ),
+                ),
+              ),
+            ],
+          ),
+        );
+      },
+    );
+  }
+
+  Widget _dinsosMobile() {
+    return ListView.builder(
+      primary: false,
+      shrinkWrap: true,
+      itemCount: dinsos.length,
+      itemBuilder: (BuildContext context, int index) {
+        final post = dinsos[index];
+        final htmlContent = post['excerpt']['rendered'];
+        final postUrl = post['link'];
+        return ListTile(
+          onTap: () {
+            _launchUrl(postUrl);
+          },
+          title: Text(
+            post['title']['rendered'],
+            style: Theme.of(context).textTheme.headlineSmall,
+          ),
+          subtitle: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              HtmlWidget(
+                htmlContent,
+              ),
+              const SizedBox(
+                height: 8.0,
+              ),
+              TextButton(
+                onPressed: () {
+                  _launchUrl(postUrl);
+                },
+                child: Text(
+                  "Selengkapnya",
+                  style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                        color: Colors.blue,
+                        fontSize: 14.0,
+                      ),
+                ),
+              ),
+            ],
+          ),
+        );
+      },
+    );
+  }
+
+  Widget _disperkimWeb() {
+    return ListView.builder(
+      primary: false,
+      shrinkWrap: true,
+      itemCount: disperkim.length,
+      itemBuilder: (BuildContext context, int index) {
+        final post = disperkim[index];
+
+        final postUrl = post['link'];
+        return ListTile(
+          onTap: () {
+            _launchUrl(postUrl);
+          },
+          title: Text(
+            post['title']['rendered'],
+            style: Theme.of(context).textTheme.headlineSmall,
+          ),
+          subtitle: Align(
+            alignment: Alignment.centerLeft,
+            child: TextButton(
+              onPressed: () {
+                _launchUrl(postUrl);
+              },
+              child: Text(
+                "Selengkapnya",
+                style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                      color: Colors.blue,
+                      fontSize: 20.0,
+                    ),
+              ),
+            ),
+          ),
+        );
+      },
+    );
+  }
+
+  Widget _disperkimMobile() {
+    return ListView.builder(
+      primary: false,
+      shrinkWrap: true,
+      itemCount: disperkim.length,
+      itemBuilder: (BuildContext context, int index) {
+        final post = disperkim[index];
+
+        final postUrl = post['link'];
+        return ListTile(
+          onTap: () {
+            _launchUrl(postUrl);
+          },
+          title: Text(
+            post['title']['rendered'],
+            style: Theme.of(context).textTheme.headlineSmall,
+          ),
+          subtitle: TextButton(
+            onPressed: () {
+              _launchUrl(postUrl);
+            },
+            child: Text(
+              "Selengkapnya",
+              style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                    color: Colors.blue,
+                    fontSize: 14.0,
+                  ),
+            ),
+          ),
+        );
+      },
+    );
+  }
+
+  Widget _dishubWeb() {
+    return ListView.builder(
+      primary: false,
+      shrinkWrap: true,
+      itemCount: dishub.length,
+      itemBuilder: (BuildContext context, int index) {
+        final post = dishub[index];
+        final htmlContent = post['excerpt']['rendered'];
+        final postUrl = post['link'];
+        return ListTile(
+          onTap: () {
+            _launchUrl(postUrl);
+          },
+          title: Text(
+            post['title']['rendered'],
+            style: Theme.of(context).textTheme.headlineSmall,
+          ),
+          subtitle: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              HtmlWidget(
+                htmlContent,
+              ),
+              const SizedBox(
+                height: 8.0,
+              ),
+              TextButton(
+                onPressed: () {
+                  _launchUrl(postUrl);
+                },
+                child: Text(
+                  "Selengkapnya",
+                  style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                        color: Colors.blue,
+                        fontSize: 20.0,
+                      ),
+                ),
+              ),
+            ],
+          ),
+        );
+      },
+    );
+  }
+
+  Widget _dishubMobile() {
+    return ListView.builder(
+      primary: false,
+      shrinkWrap: true,
+      itemCount: dishub.length,
+      itemBuilder: (BuildContext context, int index) {
+        final post = dishub[index];
+        final htmlContent = post['excerpt']['rendered'];
+        final postUrl = post['link'];
+        return ListTile(
+          onTap: () {
+            _launchUrl(postUrl);
+          },
+          title: Text(
+            post['title']['rendered'],
+            style: Theme.of(context).textTheme.headlineSmall,
+          ),
+          subtitle: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              HtmlWidget(
+                htmlContent,
+              ),
+              const SizedBox(
+                height: 8.0,
+              ),
+              TextButton(
+                onPressed: () {
+                  _launchUrl(postUrl);
+                },
+                child: Text(
+                  "Selengkapnya",
+                  style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                        color: Colors.blue,
+                        fontSize: 14.0,
+                      ),
+                ),
+              ),
+            ],
+          ),
+        );
+      },
+    );
+  }
+
+  Widget _bpkadWeb() {
+    return ListView.builder(
+      primary: false,
+      shrinkWrap: true,
+      itemCount: bpkad.length,
+      itemBuilder: (BuildContext context, int index) {
+        final post = bpkad[index];
+        final htmlContent = post['excerpt']['rendered'];
+        final postUrl = post['link'];
+        return ListTile(
+          onTap: () {
+            _launchUrl(postUrl);
+          },
+          title: Text(
+            post['title']['rendered'],
+            style: Theme.of(context).textTheme.headlineSmall,
+          ),
+          subtitle: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              HtmlWidget(
+                htmlContent,
+              ),
+              const SizedBox(
+                height: 8.0,
+              ),
+              TextButton(
+                onPressed: () {
+                  _launchUrl(postUrl);
+                },
+                child: Text(
+                  "Selengkapnya",
+                  style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                        color: Colors.blue,
+                        fontSize: 20.0,
+                      ),
+                ),
+              ),
+            ],
+          ),
+        );
+      },
+    );
+  }
+
+  Widget _bpkadMobile() {
+    return ListView.builder(
+      primary: false,
+      shrinkWrap: true,
+      itemCount: bpkad.length,
+      itemBuilder: (BuildContext context, int index) {
+        final post = bpkad[index];
+        final htmlContent = post['excerpt']['rendered'];
+        final postUrl = post['link'];
+        return ListTile(
+          onTap: () {
+            _launchUrl(postUrl);
+          },
+          title: Text(
+            post['title']['rendered'],
+            style: Theme.of(context).textTheme.headlineSmall,
+          ),
+          subtitle: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              HtmlWidget(
+                htmlContent,
+              ),
+              const SizedBox(
+                height: 8.0,
+              ),
+              TextButton(
+                onPressed: () {
+                  _launchUrl(postUrl);
+                },
+                child: Text(
+                  "Selengkapnya",
+                  style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                        color: Colors.blue,
+                        fontSize: 14.0,
+                      ),
+                ),
+              ),
+            ],
+          ),
+        );
+      },
+    );
+  }
+
+  Widget _bkppWeb() {
+    return ListView.builder(
+      primary: false,
+      shrinkWrap: true,
+      itemCount: bkppPost.length,
+      itemBuilder: (BuildContext context, int index) {
+        final post = bkppPost[index];
+        final htmlContent = post['excerpt']['rendered'];
+        final postUrl = post['link'];
+        return ListTile(
+          onTap: () {
+            _launchUrl(postUrl);
+          },
+          title: Text(
+            post['title']['rendered'],
+            style: Theme.of(context).textTheme.headlineSmall,
+          ),
+          subtitle: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              HtmlWidget(
+                htmlContent,
+              ),
+              const SizedBox(
+                height: 8.0,
+              ),
+              TextButton(
+                onPressed: () {
+                  _launchUrl(postUrl);
+                },
+                child: Text(
+                  "Selengkapnya",
+                  style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                        color: Colors.blue,
+                        fontSize: 20.0,
+                      ),
+                ),
+              ),
+            ],
+          ),
+        );
+      },
+    );
+  }
+
+  Widget _bkppMobile() {
+    return ListView.builder(
+      primary: false,
+      shrinkWrap: true,
+      itemCount: bkppPost.length,
+      itemBuilder: (BuildContext context, int index) {
+        final post = bkppPost[index];
+        final htmlContent = post['excerpt']['rendered'];
+        final postUrl = post['link'];
+        return ListTile(
+          onTap: () {
+            _launchUrl(postUrl);
+          },
+          title: Text(
+            post['title']['rendered'],
+            style: Theme.of(context).textTheme.headlineSmall,
+          ),
+          subtitle: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              HtmlWidget(
+                htmlContent,
+              ),
+              const SizedBox(
+                height: 8.0,
+              ),
+              TextButton(
+                onPressed: () {
+                  _launchUrl(postUrl);
+                },
+                child: Text(
+                  "Selengkapnya",
+                  style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                        color: Colors.blue,
+                        fontSize: 14.0,
+                      ),
+                ),
+              ),
+            ],
+          ),
+        );
+      },
+    );
+  }
+
+  Widget _mediaCenterWeb() {
+    return ListView.builder(
+      primary: false,
+      shrinkWrap: true,
+      itemCount: wpPost.length,
+      itemBuilder: (BuildContext context, int index) {
+        final post = wpPost[index];
+        final htmlContent = post['excerpt']['rendered'];
+
+        final postUrl = post['link'];
+        return ListTile(
+          onTap: () {
+            _launchUrl(postUrl);
+          },
+          title: Text(
+            post['title']['rendered'],
+            style: Theme.of(context).textTheme.headlineSmall,
+          ),
+          subtitle: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              HtmlWidget(
+                htmlContent,
+              ),
+              const SizedBox(
+                height: 8.0,
+              ),
+              TextButton(
+                onPressed: () {
+                  _launchUrl(postUrl);
+                },
+                child: Text(
+                  "Selengkapnya",
+                  style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                        color: Colors.blue,
+                        fontSize: 20.0,
+                      ),
+                ),
+              ),
+            ],
+          ),
+        );
+      },
+    );
+  }
+
+  Widget _mediaCenterMobile() {
+    return ListView.builder(
+      primary: false,
+      shrinkWrap: true,
+      itemCount: wpPost.length,
+      itemBuilder: (BuildContext context, int index) {
+        final post = wpPost[index];
+        final htmlContent = post['excerpt']['rendered'];
+
+        final postUrl = post['link'];
+        return ListTile(
+          onTap: () {
+            _launchUrl(postUrl);
+          },
+          title: Text(
+            post['title']['rendered'],
+            style: Theme.of(context).textTheme.headlineSmall,
+          ),
+          subtitle: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              HtmlWidget(
+                htmlContent,
+              ),
+              const SizedBox(
+                height: 8.0,
+              ),
+              TextButton(
+                onPressed: () {
+                  _launchUrl(postUrl);
+                },
+                child: Text(
+                  "Selengkapnya",
+                  style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                        color: Colors.blue,
+                        fontSize: 14.0,
+                      ),
+                ),
+              ),
+            ],
+          ),
+        );
+      },
     );
   }
 
