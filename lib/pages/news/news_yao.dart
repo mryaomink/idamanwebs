@@ -292,6 +292,7 @@ class _NewsYaoState extends State<NewsYao> {
             children: [
               HtmlWidget(
                 htmlContent,
+                textStyle: const TextStyle(color: Colors.grey),
               ),
               const SizedBox(
                 height: 8.0,
@@ -337,6 +338,7 @@ class _NewsYaoState extends State<NewsYao> {
             children: [
               HtmlWidget(
                 htmlContent,
+                textStyle: const TextStyle(color: Colors.grey),
               ),
               const SizedBox(
                 height: 8.0,
@@ -382,6 +384,7 @@ class _NewsYaoState extends State<NewsYao> {
             children: [
               HtmlWidget(
                 htmlContent,
+                textStyle: const TextStyle(color: Colors.grey),
               ),
               const SizedBox(
                 height: 8.0,
@@ -427,6 +430,7 @@ class _NewsYaoState extends State<NewsYao> {
             children: [
               HtmlWidget(
                 htmlContent,
+                textStyle: const TextStyle(color: Colors.grey),
               ),
               const SizedBox(
                 height: 8.0,
@@ -543,6 +547,7 @@ class _NewsYaoState extends State<NewsYao> {
             children: [
               HtmlWidget(
                 htmlContent,
+                textStyle: const TextStyle(color: Colors.grey),
               ),
               const SizedBox(
                 height: 8.0,
@@ -588,6 +593,7 @@ class _NewsYaoState extends State<NewsYao> {
             children: [
               HtmlWidget(
                 htmlContent,
+                textStyle: const TextStyle(color: Colors.grey),
               ),
               const SizedBox(
                 height: 8.0,
@@ -633,6 +639,7 @@ class _NewsYaoState extends State<NewsYao> {
             children: [
               HtmlWidget(
                 htmlContent,
+                textStyle: const TextStyle(color: Colors.grey),
               ),
               const SizedBox(
                 height: 8.0,
@@ -678,6 +685,7 @@ class _NewsYaoState extends State<NewsYao> {
             children: [
               HtmlWidget(
                 htmlContent,
+                textStyle: const TextStyle(color: Colors.grey),
               ),
               const SizedBox(
                 height: 8.0,
@@ -723,6 +731,7 @@ class _NewsYaoState extends State<NewsYao> {
             children: [
               HtmlWidget(
                 htmlContent,
+                textStyle: const TextStyle(color: Colors.grey),
               ),
               const SizedBox(
                 height: 8.0,
@@ -768,6 +777,7 @@ class _NewsYaoState extends State<NewsYao> {
             children: [
               HtmlWidget(
                 htmlContent,
+                textStyle: const TextStyle(color: Colors.grey),
               ),
               const SizedBox(
                 height: 8.0,
@@ -814,6 +824,7 @@ class _NewsYaoState extends State<NewsYao> {
             children: [
               HtmlWidget(
                 htmlContent,
+                textStyle: const TextStyle(color: Colors.grey),
               ),
               const SizedBox(
                 height: 8.0,
@@ -860,6 +871,7 @@ class _NewsYaoState extends State<NewsYao> {
             children: [
               HtmlWidget(
                 htmlContent,
+                textStyle: const TextStyle(color: Colors.grey),
               ),
               const SizedBox(
                 height: 8.0,

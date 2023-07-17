@@ -25,110 +25,111 @@ class YaoHome extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
-          scrollDirection: Axis.vertical,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              const IdamanHero(),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                child: SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.2,
-                  width: MediaQuery.of(context).size.width,
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Expanded(
-                        child: InkWell(
-                          onTap: () {
-                            launchUrlDukcapil();
-                          },
-                          child: Stack(
-                            children: [
-                              Container(
-                                alignment: Alignment.bottomLeft,
-                                height: 280,
-                                color: Colors.blueGrey,
-                                child: Image.asset('assets/icon/kadis.png'),
-                              ),
-                              Align(
-                                alignment: Alignment.topCenter,
-                                child: Container(
-                                  margin: const EdgeInsets.all(8.0),
-                                  color: Colors.black.withOpacity(0.5),
-                                  child: const Text(
-                                    'Dukcapil Online',
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 16.0,
-                                    ),
+        scrollDirection: Axis.vertical,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            const IdamanHero(),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16.0),
+              child: SizedBox(
+                height: MediaQuery.of(context).size.height * 0.2,
+                width: MediaQuery.of(context).size.width,
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Expanded(
+                      child: InkWell(
+                        onTap: () {
+                          launchUrlDukcapil();
+                        },
+                        child: Stack(
+                          children: [
+                            Container(
+                              alignment: Alignment.bottomLeft,
+                              height: 280,
+                              color: Colors.blueGrey,
+                              child: Image.asset('assets/icon/kadis.png'),
+                            ),
+                            Align(
+                              alignment: Alignment.topCenter,
+                              child: Container(
+                                margin: const EdgeInsets.all(8.0),
+                                color: Colors.black.withOpacity(0.5),
+                                child: const Text(
+                                  'Dukcapil Online',
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 16.0,
                                   ),
                                 ),
                               ),
-                            ],
-                          ),
+                            ),
+                          ],
                         ),
                       ),
-                      const SizedBox(
-                        width: 20.0,
-                      ),
-                      Expanded(
-                        child: InkWell(
-                          onTap: () {
-                            launchUrlSipopi();
-                          },
-                          child: Stack(
-                            children: [
-                              Container(
-                                padding: const EdgeInsets.only(right: 16.0),
-                                alignment: Alignment.bottomRight,
-                                height: 280,
-                                color: Colors.blue,
-                                child: Image.asset('assets/icon/bupati.png'),
-                              ),
-                              MediaQuery.of(context).size.width >= 600
-                                  ? Align(
-                                      alignment: Alignment.topLeft,
-                                      child: Container(
-                                        margin: const EdgeInsets.all(8.0),
-                                        color: Colors.black.withOpacity(0.5),
-                                        child: const Text(
-                                          'Sipopi',
-                                          style: TextStyle(
-                                            color: Colors.white,
-                                            fontSize: 16.0,
-                                          ),
-                                        ),
-                                      ),
-                                    )
-                                  : Align(
-                                      alignment: Alignment.topCenter,
-                                      child: Container(
-                                        margin: const EdgeInsets.all(8.0),
-                                        color: Colors.black.withOpacity(0.5),
-                                        child: const Text(
-                                          'Sipopi',
-                                          style: TextStyle(
-                                            color: Colors.white,
-                                            fontSize: 16.0,
-                                          ),
+                    ),
+                    const SizedBox(
+                      width: 20.0,
+                    ),
+                    Expanded(
+                      child: InkWell(
+                        onTap: () {
+                          launchUrlSipopi();
+                        },
+                        child: Stack(
+                          children: [
+                            Container(
+                              padding: const EdgeInsets.only(right: 16.0),
+                              alignment: Alignment.bottomRight,
+                              height: 280,
+                              color: Colors.blue,
+                              child: Image.asset('assets/icon/bupati.png'),
+                            ),
+                            MediaQuery.of(context).size.width >= 600
+                                ? Align(
+                                    alignment: Alignment.topLeft,
+                                    child: Container(
+                                      margin: const EdgeInsets.all(8.0),
+                                      color: Colors.black.withOpacity(0.5),
+                                      child: const Text(
+                                        'Sipopi',
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 16.0,
                                         ),
                                       ),
                                     ),
-                            ],
-                          ),
+                                  )
+                                : Align(
+                                    alignment: Alignment.topCenter,
+                                    child: Container(
+                                      margin: const EdgeInsets.all(8.0),
+                                      color: Colors.black.withOpacity(0.5),
+                                      child: const Text(
+                                        'Sipopi',
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 16.0,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                          ],
                         ),
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
               ),
-              const SizedBox(
-                height: 30.0,
-              ),
-            ],
-          )),
+            ),
+            const SizedBox(
+              height: 30.0,
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
@@ -159,6 +160,14 @@ class IdamanHero extends StatelessWidget {
     if (await launchUrl(Uri.parse(satuData))) {
     } else {
       throw 'Could not launch Satu Data.';
+    }
+  }
+
+  void launchUrlDataProdusen() async {
+    const String dataProdusen = 'https://data.banjarbarukota.go.id/produsen';
+    if (await launchUrl(Uri.parse(dataProdusen))) {
+    } else {
+      throw 'Could not launch Sipopi.';
     }
   }
 
@@ -457,6 +466,70 @@ class IdamanHero extends StatelessWidget {
           const SizedBox(
             height: 20.0,
           ),
+          if (MediaQuery.of(context).size.width < 640)
+            InkWell(
+              onTap: () {
+                launchUrlDataProdusen();
+              },
+              child: Container(
+                height: MediaQuery.of(context).size.height * 0.2,
+                width: MediaQuery.of(context).size.width,
+                decoration: const BoxDecoration(
+                    image: DecorationImage(
+                        image: NetworkImage(
+                            'https://images.unsplash.com/photo-1523961131990-5ea7c61b2107?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80'),
+                        fit: BoxFit.cover)),
+                child: const Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Text(
+                      'Satu Data',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 30.0,
+                      ),
+                    ),
+                    Text(
+                      'Produsen Data',
+                      style: TextStyle(color: Colors.white),
+                    )
+                  ],
+                ),
+              ),
+            )
+          else
+            InkWell(
+              onTap: () {
+                launchUrlDataProdusen();
+              },
+              child: Container(
+                width: MediaQuery.of(context).size.width,
+                height: 100.0,
+                decoration: const BoxDecoration(
+                    image: DecorationImage(
+                        image: NetworkImage(
+                            'https://images.unsplash.com/photo-1523961131990-5ea7c61b2107?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80'),
+                        fit: BoxFit.cover)),
+                child: const Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Text(
+                      'Satu Data',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 30.0,
+                      ),
+                    ),
+                    Text(
+                      'Produsen Data',
+                      style: TextStyle(color: Colors.white),
+                    )
+                  ],
+                ),
+              ),
+            ),
           Container(
             width: MediaQuery.of(context).size.width,
             height: 100,
