@@ -1,7 +1,5 @@
-import 'package:idaman_webs/state_util.dart';
+import 'package:idaman_webs/core.dart';
 import 'package:flutter/material.dart';
-
-import 'package:idaman_webs/pages/yao_navi.dart';
 
 void main() {
   runApp(
