@@ -82,11 +82,12 @@ class _IdamanHomeState extends State<IdamanHome> {
           child: GridView.builder(
             primary: false,
             shrinkWrap: true,
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 3, // Number of columns in the grid
               crossAxisSpacing: 4.0,
               mainAxisSpacing: 4.0,
-              childAspectRatio: 2 / 2,
+              childAspectRatio: MediaQuery.of(context).size.width /
+                  (MediaQuery.of(context).size.height / 1.4),
             ),
             itemCount: 9,
             itemBuilder: (context, index) {
